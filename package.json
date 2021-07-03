@@ -1,5 +1,5 @@
 {
-  "name": "recruite-web",
+  "name": "clubcat-web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,23 +8,60 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "vue": "^3.0.0"
+    "axios": "^0.21.1",
+    "core-js": "^3.11.0",
+    "dayjs": "^1.10.4",
+    "echarts": "^5.1.0",
+    "element-plus": "^1.0.2-beta.54",
+    "file-saver": "^2.0.5",
+    "js-cookie": "^2.2.1",
+    "lodash-es": "^4.17.21",
+    "path-to-regexp": "^6.2.0",
+    "qs": "^6.10.1",
+    "screenfull": "^5.1.0",
+    "vue": "3.0.11",
+    "vue-i18n": "^9.1.6",
+    "vue-router": "^4.0.6",
+    "vuex": "^4.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.18.0",
-    "@typescript-eslint/parser": "^4.18.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-standard": "^5.1.2",
+    "@ls-lint/ls-lint": "^1.9.2",
+    "@ntnyq/eslint-config": "^0.3.2",
+    "@ntnyq/prettier-config": "^0.3.0",
+    "@types/js-cookie": "^2.2.6",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "@vue/cli-plugin-babel": "~4.5.12",
+    "@vue/cli-plugin-eslint": "~4.5.12",
+    "@vue/cli-plugin-router": "~4.5.12",
+    "@vue/cli-plugin-typescript": "~4.5.12",
+    "@vue/cli-plugin-vuex": "~4.5.12",
+    "@vue/cli-service": "~4.5.12",
+    "@vue/compiler-sfc": "^3.0.11",
     "@vue/eslint-config-typescript": "^7.0.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^7.0.0",
-    "typescript": "~4.1.5"
+    "babel-plugin-component": "^1.1.1",
+    "babel-plugin-import": "^1.13.3",
+    "eslint": "^7.25.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "husky": "6.0.0",
+    "lint-staged": "^10.5.4",
+    "node-sass": "^5.0.0",
+    "prettier": "^2.2.1",
+    "regenerator-runtime": "^0.13.7",
+    "sass": "^1.32.11",
+    "sass-loader": "^10.1.1",
+    "svg-sprite-loader": "^6.0.6",
+    "svgo": "^2.3.0",
+    "typescript": "~4.2.4"
+  },
+  "prettier": "@ntnyq/prettier-config",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": "vue-cli-service lint",
+    "*.{md,yml}": "prettier --write"
   }
 }
