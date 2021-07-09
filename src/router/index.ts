@@ -1,10 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import routes from './routes'
 
-export const ROUTE_WHITE_LIST: string[] = [
-  'SignIn',
-  'Dashboard',
-]
+export const ROUTE_WHITE_LIST: string[] = ['SignIn', 'Dashboard']
 
 /**
  * Create router
@@ -19,7 +16,7 @@ const router = createRouter({
 /**
  * Reset router
  */
-export function resetRouter ():void {
+export function resetRouter (): void {
   router.getRoutes().forEach(route => {
     const name = route.name as string
 

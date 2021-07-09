@@ -1,8 +1,8 @@
 <template>
   <div class="app-container">
     <h1>Dashboard</h1>
-<!--    <svg-icon name="dashboard" />-->
-<!--    <app-screenfull />-->
+    <!--    <svg-icon name="dashboard" />-->
+    <!--    <app-screenfull />-->
   </div>
 </template>
 

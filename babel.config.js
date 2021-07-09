@@ -6,7 +6,7 @@ module.exports = {
       {
         libraryName: 'element-plus',
         styleLibraryName: 'theme-chalk',
-      }
-    ]
+      },
+    ],
   ],
 }

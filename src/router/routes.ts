@@ -1,9 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
-import Layout from '@/layout/index.vue'
-import Redirect from '@/view/common/redirect.vue'
-import NotFound from '@/view/common/not-found.vue'
-// import SignIn from '@/views/sign-in/index.vue'
-// import DashBoard from '@/views/dashboard/index.vue'
+import Layout from '@/components/layout/index.vue'
+import Redirect from '@/components/view/common/redirect.vue'
+import NotFound from '@/components/view/common/not-found.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -34,9 +32,8 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       hidden: true,
     },
-    component: () => import('@/view/sign-in/index.vue'),
+    component: () => import('@/components/view/sign-in/index.vue'),
   },
-  //
   {
     path: '/',
     redirect: '/dashboard',
@@ -46,7 +43,7 @@ const routes: Array<RouteRecordRaw> = [
         path: '/dashboard',
         name: 'Dashboard',
         meta: {},
-        component: () => import('@/view/dashboard/index.vue'),
+        component: () => import('@/components/view/dashboard/index.vue'),
       },
     ],
   },

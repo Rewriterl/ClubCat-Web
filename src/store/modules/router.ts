@@ -1,3 +1,6 @@
+/*
+  路由全局属性
+ */
 import type { ActionTree, MutationTree } from 'vuex'
 import type { RouteRecordRaw } from 'vue-router'
 import constantsRoutes from '@/router/routes'
@@ -35,7 +38,7 @@ function filterAsyncRoutes (routes: RouteRecordRaw[], permissions: IPermission =
 }
 
 export const state: RouterState = {
-  routes: [],
+  routes: constantsRoutes,
   addRoutes: [],
 }
 

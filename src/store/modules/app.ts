@@ -1,3 +1,6 @@
+/*
+  应用全局属性
+ */
 import type { ActionTree, MutationTree } from 'vuex'
 import type { AppState } from '../types'
 import * as storage from '@/utils/storage'
@@ -18,6 +21,7 @@ export const state: AppState = {
 }
 
 export const actions: ActionTree<AppState, unknown> = {
+  // 使用 ES2015的写法，使用常量作为函数名
   [SET_LANGUAGE.action] ({ commit }, language: string) {
     storage.setLanguage(language)
     commit(SET_LANGUAGE.mutation, language)

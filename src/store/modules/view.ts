@@ -1,3 +1,6 @@
+/*
+  视图全局属性
+ */
 import type { ActionTree, MutationTree } from 'vuex'
 import type { ViewState } from '../types'
 

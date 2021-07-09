@@ -38,7 +38,7 @@
             class="user-message-badge"
           >
             <img
-              src="/assets/images/avatar.png"
+              src="https://lh3.googleusercontent.com/ogw/ADea4I6vtdVfqtS4IKBs894iwOa-v64BA8v4UmH5O3IR=s32-c-mo"
               class="user-avatar"
               alt="User Avatar"
             >
@@ -76,7 +76,7 @@ export default defineComponent({
   setup () {
     const { i18n, router, store } = useEnhancer()
 
-    const username = computed(() => 'ntnyq')
+    const username = computed(() => 'admin')
     const menuIconName = computed(() => store.getters.sidebar?.isOpen ? 'left' : 'hamburger')
 
     const toggleSidebar = (): void => {

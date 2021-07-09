@@ -1,24 +1,6 @@
-# recruite-web
+# ClubCat-web
 
-## Project setup
-```
-yarn install
-```
+createWebHashHistory：使用VueRouter内部提供的history模式实现
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+TODO:猜测可能与使用interface作为数据类型类似
+import type：Flow提供的类型检查工具，用以导入数据类型，表示仅仅引入数据类型而不是类。

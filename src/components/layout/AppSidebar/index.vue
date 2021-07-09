@@ -5,17 +5,28 @@
         :default-active="activeMenu"
         :collapse="!sidebar.isOpen"
         :collapse-transition="false"
+        text-color="#fff"
+        background-color="#545c64"
         class="root-menu"
         mode="vertical"
         unique-opened
         router
       >
-        <sidebar-item
+        <div
           v-for="route in routes"
           :key="route.path"
-          :item="route"
-          :base-path="route.path"
-        />
+        >
+          <el-menu-item>
+            {{ route.path }}
+          </el-menu-item>
+        </div>
+
+        <!--        <sidebar-item-->
+        <!--          v-for="route in routes"-->
+        <!--          :key="route.path"-->
+        <!--          :item="route"-->
+        <!--          :base-path="route.path"-->
+        <!--        />-->
       </el-menu>
     </el-scrollbar>
   </div>
@@ -24,22 +35,20 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { useEnhancer } from '@/enhancers'
-import SidebarItem from './Item.vue'
+// import SidebarItem from './Item.vue'
 
 export default defineComponent({
   name: 'AppSidebar',
 
   components: {
-    SidebarItem,
+    // SidebarItem,
   },
-
   setup () {
     const { route, store } = useEnhancer()
-
     const activeMenu = computed(() => route.meta.activeMenu || route.path)
     const routes = computed(() => store.getters.routes)
     const sidebar = computed(() => store.getters.sidebar)
-
+    console.log(routes.value)
     return {
       routes,
       sidebar,

@@ -1,5 +1,5 @@
-import type {GetterTree} from 'vuex'
-import type {GlobalState} from './types'
+import type { GetterTree } from 'vuex'
+import type { GlobalState } from './types'
 
 const getters: GetterTree<GlobalState, unknown> = {
   language: state => state.app.language,

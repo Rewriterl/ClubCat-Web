@@ -1,3 +1,6 @@
+/*
+  i18n国际化工具
+ */
 import { createI18n } from 'vue-i18n'
 
 import nativeZhMessage from './lang/zh'

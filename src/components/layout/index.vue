@@ -14,9 +14,9 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { useEnhancer } from '@/enhancers'
-import AppMain from './components/AppMain.vue'
-import AppNavbar from './components/AppNavbar.vue'
-import AppSidebar from './components/AppSidebar/index.vue'
+import AppMain from './AppMain/index.vue'
+import AppNavbar from './AppNavbar/index.vue'
+import AppSidebar from './AppSidebar/index.vue'
 
 export default defineComponent({
   name: 'Layout',

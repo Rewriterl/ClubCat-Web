@@ -1,4 +1,4 @@
-import {createApp} from 'vue'
+import { createApp } from 'vue'
 import App from '@/App.vue'
 import router from '@/router'
 import store from '@/store'
@@ -7,7 +7,7 @@ import 'element-plus/lib/theme-chalk/index.css'
 import '@/styles/style.scss'
 import '@/icons'
 import ElementPlus from 'element-plus'
-import components from '@/components'
+import components from '@/components/common'
 
 const app = createApp(App)
 
@@ -17,5 +17,4 @@ app.use(i18n)
 app.use(ElementPlus)
 app.use(components)
 
-router.isReady()
-  .then(() => app.mount('#app'))
+router.isReady().then(() => app.mount('#app'))

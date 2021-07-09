@@ -1,7 +1,10 @@
+/*
+  用户全局属性
+ */
 import type { ActionTree, MutationTree } from 'vuex'
 import type { UserState } from '../types'
 import * as storage from '@/utils/storage'
-import {SET_TOKEN, SIGN_OUT} from '@/constants/store'
+import { SET_TOKEN, SIGN_OUT } from '@/constants/store'
 import { resetRouter } from '@/router'
 
 export const state: UserState = {
