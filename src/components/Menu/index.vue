@@ -1,38 +1,33 @@
 <template>
   <teleport to="body">
-    <div class="navbar">
-      <input type="checkbox" name="" id="">
-      <span></span>
-      <span></span>
-      <ul>
-        <li><a href="javascript:void(0)">首页</a></li>
-        <li><a href="javascript:void(0)">其他</a></li>
-        <li><a href="javascript:void(0)">其他</a></li>
-        <li><a href="javascript:void(0)">他其</a></li>
-        <li><a href="javascript:void(0)">emm</a></li>
-      </ul>
+    <div id="menu">
+      <div class="navbar">
+        <input type="checkbox" name="" id="">
+        <span></span>
+        <span></span>
+        <ul>
+          <li><a href='javascript:void(0)'>首页</a></li>
+          <li><a href='javascript:void(0)'>我的社团</a></li>
+          <li><a href='javascript:void(0)'>个人中心</a></li>
+        </ul>
+      </div>
     </div>
   </teleport>
 </template>
 
 <script>
-export default {
-  name: "Menu"
-}
+import {defineComponent} from "vue";
+
+export default defineComponent({
+  name: "Menu",
+  components: {},
+})
 </script>
 
-<style scoped>
-/*body {*/
-/*  !* 相对单位，view height 指视口单位的1% *!*/
-/*  height: 100vh;*/
-/*  !* 渐变色 *!*/
-/*  background: linear-gradient(#99f, #f99);*/
-/*}*/
-
-/* justify-content 定义了浏览器之间如何分顺着弹性容器主轴
-      或网格行轴的元素之间机器周围的空间
-   center 表示伸缩元素向每行中点片列。
-      每行第一个元素到行首的距离将与每行最后一个元素到行尾的距离相同
+<style lang="scss" scoped>
+/* vh:相对单位，view height 指视口单位的1% */
+/* justify-content 定义了浏览器之间如何分顺着弹性容器主轴或网格行轴的元素之间机器周围的空间
+   center 表示伸缩元素向每行中点片列。每行第一个元素到行首的距离将与每行最后一个元素到行尾的距离相同
 */
 body,
 .navbar,
