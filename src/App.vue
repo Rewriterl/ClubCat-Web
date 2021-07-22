@@ -52,7 +52,7 @@ body {
   display: flex;
   // 铺满全屏
   height: 100vh;
-  background: linear-gradient(#99f, #f99);
+  background: #e0eaf7;
 }
 
 #menu {
@@ -64,12 +64,21 @@ body {
   height: 10vh;
 }
 
-// 项目自带
 #app {
+  padding: 15vh 8vh;
   display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  justify-content: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  //white-space: nowrap;
 }
 </style>

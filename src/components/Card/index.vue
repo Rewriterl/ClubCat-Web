@@ -1,10 +1,10 @@
 <template>
-  <div class="card-container" @mousemove="getMouseLocal" ref="containerRef">
+  <div class="card-container" ref="containerRef">
     <div class="content" :style="{ '--rx': rx, '--ry': ry }">
-      <p class="title">{{ name }}</p>
+      <p class="title text-ellipsis">{{ name }}</p>
       <!--      <p class="title">{{ moto }}</p>-->
-      <div class="card">{{ introduction }}</div>
-      <div class="lock"></div>
+      <div class="card text-ellipsis">{{ introduction }}</div>
+      <!--      <div class="lock"></div>-->
     </div>
   </div>
 </template>
@@ -68,12 +68,15 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 12vh -5vh 32vw 8vw;
+  //margin: 12vh -5vh 5vw 7vw;
 }
 
 .content {
-  width: 220px;
-  padding: 20px;
+  height: 25vh;
+  width: 15vw;
+  margin-top: 3vh;
+  margin-right: 2vw;
+  padding: 5px 20px;
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px rgba(255, 255, 255, 0.6);
@@ -86,7 +89,7 @@ export default defineComponent({
   transition: all 0.1s;
 }
 .title {
-  margin: 0;
+  margin: 0.7vh;
   font-size: 20px;
   text-align: center;
   color: #666;
@@ -94,14 +97,15 @@ export default defineComponent({
 }
 .card {
   width: 80%;
-  height: 80px;
+  height: 12vh;
   border-radius: 20px;
-  margin: 10px 0 20px 0;
+  margin: 20px 0 20px 0;
   padding: 20px;
   color: #fff;
   font-size: 16px;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: #7f7fd5;
   background: -webkit-linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
   background: linear-gradient(-20deg, #91eae4, #86a8e7, #7f7fd5);
