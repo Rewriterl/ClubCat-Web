@@ -1,9 +1,9 @@
 <template>
-  <div class="container" @mousemove="getMouseLocal" ref="containerRef">
+  <div class="card-container" @mousemove="getMouseLocal" ref="containerRef">
     <div class="content" :style="{ '--rx': rx, '--ry': ry }">
       <p class="title">{{ name }}</p>
-      <p class="title">{{ moto }}</p>
-      <div class="card">{{ description }}</div>
+      <!--      <p class="title">{{ moto }}</p>-->
+      <div class="card">{{ introduction }}</div>
       <div class="lock"></div>
     </div>
   </div>
@@ -18,8 +18,8 @@ export default defineComponent({
   name: 'Card',
   props: [
     'name',
-    'moto',
-    'description'
+    // 'moto',
+    'introduction'
   ],
   setup() {
     const size = reactive({width: 0, height: 0}); //鼠标交互有效区域大小
@@ -64,14 +64,13 @@ export default defineComponent({
 
 <!--suppress CssUnresolvedCustomProperty -->
 <style lang="scss" scoped>
-.container {
+.card-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #efefef;
-  width: 100%;
-  height: 100%;
+  margin: 12vh -5vh 32vw 8vw;
 }
+
 .content {
   width: 220px;
   padding: 20px;

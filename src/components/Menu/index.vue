@@ -39,7 +39,7 @@ body,
 
 .navbar {
   position: relative;
-  padding: 1.6vh;
+  padding: 1.2rem;
   border-radius: 50px;
   background-color: #fff;
 }

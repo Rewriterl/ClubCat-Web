@@ -1,13 +1,15 @@
 <template>
   <Menu/>
-  <Card name="42Team"
-        moto="Welcome to 42"
-        description="社团详细信息、社团简介、社团简介、社团简介、社团简介、社团简介、社团简介"
-  />
+  <template v-for="club in state.clubs">
+    <Card :name="club.clubName"
+          :introduction="club.clubIntroduction"
+    />
+  </template>
 </template>
 
 <script>
-import {defineComponent} from 'vue'
+import {defineComponent, reactive} from 'vue'
+import axios from "./util/axios.js";
 import Menu from './components/Menu/index.vue'
 import Card from './components/Card/index.vue'
 
@@ -16,6 +18,25 @@ export default defineComponent({
   components: {
     Menu,
     Card
+  },
+  setup() {
+    const state = reactive({
+      clubs: undefined,
+      dataCount: 0,
+      message: null,
+      pageAllNum: 0,
+      pageLimit: 0,
+      pageNum: 0
+    })
+    axios.get('http://club.yeefire.cn/api/nobody/v1/club').then((res) => {
+      state.clubs = res.data
+      state.dataCount = res.dataCount
+      state.message = res.message
+      state.pageAllNum = res.pageAllNum
+      state.pageLimit = res.pageLimit
+      state.pageNum = res.pageNum
+    })
+    return {state}
   }
 })
 </script>
@@ -28,19 +49,24 @@ export default defineComponent({
 }
 
 body {
+  display: flex;
   // 铺满全屏
   height: 100vh;
   background: linear-gradient(#99f, #f99);
 }
 
 #menu {
+  position: absolute;
   display: flex;
   justify-content: left;
   align-items: center;
+  margin: 4vh 2vh 5vh 5vh;
+  height: 10vh;
 }
 
 // 项目自带
 #app {
+  display: flex;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
