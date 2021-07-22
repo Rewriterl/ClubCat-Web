@@ -61,7 +61,6 @@ body {
   justify-content: left;
   align-items: center;
   margin: 4vh 2vh 5vh 5vh;
-  height: 10vh;
 }
 
 #app {

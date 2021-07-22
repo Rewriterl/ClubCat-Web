@@ -42,6 +42,7 @@ body,
   padding: 1.2rem;
   border-radius: 50px;
   background-color: #fff;
+  box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px rgba(255, 255, 255, 0.4);
 }
 
 .navbar input {
@@ -98,7 +99,7 @@ body,
 
 .navbar input:checked ~ ul {
   /* 一般都是只定义宽度，高会被自动顶出来 */
-  width: 350px;
+  width: 18rem;
 }
 
 .navbar input:checked ~ span:nth-child(2) {
