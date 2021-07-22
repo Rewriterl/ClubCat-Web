@@ -2,7 +2,7 @@
   <teleport to="body">
     <div id="menu">
       <div class="navbar">
-        <input type="checkbox" name="" id="">
+        <input type="checkbox">
         <span></span>
         <span></span>
         <ul>
@@ -39,7 +39,7 @@ body,
 
 .navbar {
   position: relative;
-  padding: 1.5vh;
+  padding: 1.6vh;
   border-radius: 50px;
   background-color: #fff;
 }

@@ -1,66 +1,68 @@
 <template>
-  <div class="container" @mousemove="getMouseLocal" ref="this.containerRef">
-    <div class="content" :style="{'--rx':rx,'--ry':ry}">
-      <p class="title">Hold Near</p>
-      <p class="title">Reader to Play</p>
-      <div class="card">***********</div>
+  <div class="container" @mousemove="getMouseLocal" ref="containerRef">
+    <div class="content" :style="{ '--rx': rx, '--ry': ry }">
+      <p class="title">{{ name }}</p>
+      <p class="title">{{ moto }}</p>
+      <div class="card">{{ description }}</div>
       <div class="lock"></div>
     </div>
   </div>
 </template>
 
+<!-- TODO:项目基本完成后尝试使用vue3实验特性setup-->
+<!--suppress JSUnusedGlobalSymbols -->
 <script>
-import {
-  defineComponent,
-  reactive,
-  ref,
-  onMounted
-} from "vue";
-// 鼠标交互有效区域大小
-const size = reactive({
-  width: 0,
-  height: 0
-})
-// 有效dom节点的ref
-const containerRef = ref(null)
+import {defineComponent, reactive, ref, onMounted} from "vue";
 
 export default defineComponent({
-  name: "Card",
-  components: {},
+  name: 'Card',
+  props: [
+    'name',
+    'moto',
+    'description'
+  ],
   setup() {
+    const size = reactive({width: 0, height: 0}); //鼠标交互有效区域大小
+    const containerRef = ref(null); // 有效dom节点中的ref
 // 获取 鼠标交互部分的范围
-    onMounted(function () {
-      // const {width, height} = containerRef.value.getBoundingClientRect();
-      // size.width = width;
-      // size.height = height;
+    onMounted(() => {
+      const {width, height} = containerRef.value.getBoundingClientRect();
+      size.width = width;
+      size.height = height;
     });
-
-    // 鼠标坐标
+// 鼠标坐标
     const mx = ref(0);
     const my = ref(0);
-    // rotate 参数
+// rotate 参数
     const rx = ref(0);
     const ry = ref(0);
 
+// 鼠标移动时执行
     function getMouseLocal(e) {
-      // const {width, height} = size
-      // // 获取鼠标位置
-      // const {x, y} = e
-      // const degR = 16
-      // ry.value = (x / (width / (degR * 2)) - defR).toFixed(1) + 'deg'
-      // rx.value = (degR - y / (height / (degR * 2))).toFixed(1) + 'deg'
-      // mx.value = x
-      // my.value = y
+      const {width, height} = size; //有效区域大小
+      const {x, y} = e; //鼠标位置
+      const degR = 16; //摆动幅度
+      ry.value = (x / (width / (degR * 2)) - degR).toFixed(1) + "deg";
+      rx.value = (degR - y / (height / (degR * 2))).toFixed(1) + "deg";
+      mx.value = x;
+      my.value = y;
     }
 
     return {
-      size, mx, my, rx, ry, getMouseLocal
+      size,
+      containerRef,
+      ry,
+      rx,
+      mx,
+      my,
+      getMouseLocal
     }
-  },
-
+  }
 })
+
 </script>
 
+<!--suppress CssUnresolvedCustomProperty -->
 <style lang="scss" scoped>
 .container {
   display: flex;
@@ -70,7 +72,6 @@ export default defineComponent({
   width: 100%;
   height: 100%;
 }
-
 .content {
   width: 220px;
   padding: 20px;
@@ -80,20 +81,18 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
-  // 最外层设置为3D
+  /* 最外层设置为3D */
   transform-style: preserve-3d;
   transform: rotateX(var(--rx)) rotateY(var(--ry));
   transition: all 0.1s;
 }
-
 .title {
-  margin: 0px;
+  margin: 0;
   font-size: 20px;
   text-align: center;
   color: #666;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
-
 .card {
   width: 80%;
   height: 80px;
@@ -110,30 +109,13 @@ export default defineComponent({
   /* card 的z轴偏移量 */
   transform: translateZ(40px);
 }
-
 .lock {
   width: 30px;
   height: 30px;
   border: 1px #999 solid;
   border-radius: 50%;
 }
-
-.panel {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  text-align: start;
-  color: #444;
-  font-size: 12px;
-}
-
 .panel div {
   padding: 0 20px;
-}
-
-.controlPanel {
-  color: #86a8e7;
-  cursor: pointer;
-  margin: 20px;
 }
 </style>

@@ -1,6 +1,9 @@
 <template>
   <Menu/>
-  <Card/>
+  <Card name="42Team"
+        moto="Welcome to 42"
+        description="社团详细信息、社团简介、社团简介、社团简介、社团简介、社团简介、社团简介"
+  />
 </template>
 
 <script>
