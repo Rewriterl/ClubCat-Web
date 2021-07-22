@@ -87,7 +87,16 @@ export default defineComponent({
   transform-style: preserve-3d;
   transform: rotateX(var(--rx)) rotateY(var(--ry));
   transition: all 0.1s;
+  //flex-wrap: wrap;
+  cursor: pointer;
 }
+
+.content:hover {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+  inset 18px 18px 30px rgba(0, 0, 0, 0.1),
+  inset -18px -18px 30px rgba(255, 255, 255, 1);
+}
+
 .title {
   margin: 0.7vh;
   font-size: 20px;
