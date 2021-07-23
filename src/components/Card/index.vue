@@ -1,10 +1,8 @@
 <template>
   <div class="card-container" ref="containerRef">
-    <div class="content" :style="{ '--rx': rx, '--ry': ry }">
+    <div class="content">
       <p class="title text-ellipsis">{{ name }}</p>
-      <!--      <p class="title">{{ moto }}</p>-->
       <div class="card text-ellipsis">{{ introduction }}</div>
-      <!--      <div class="lock"></div>-->
     </div>
   </div>
 </template>
@@ -12,52 +10,14 @@
 <!-- TODO:项目基本完成后尝试使用vue3实验特性setup-->
 <!--suppress JSUnusedGlobalSymbols -->
 <script>
-import {defineComponent, reactive, ref, onMounted} from "vue";
+import {defineComponent} from "vue";
 
 export default defineComponent({
   name: 'Card',
   props: [
     'name',
-    // 'moto',
     'introduction'
-  ],
-  setup() {
-    const size = reactive({width: 0, height: 0}); //鼠标交互有效区域大小
-    const containerRef = ref(null); // 有效dom节点中的ref
-// 获取 鼠标交互部分的范围
-    onMounted(() => {
-      const {width, height} = containerRef.value.getBoundingClientRect();
-      size.width = width;
-      size.height = height;
-    });
-// 鼠标坐标
-    const mx = ref(0);
-    const my = ref(0);
-// rotate 参数
-    const rx = ref(0);
-    const ry = ref(0);
-
-// 鼠标移动时执行
-    function getMouseLocal(e) {
-      const {width, height} = size; //有效区域大小
-      const {x, y} = e; //鼠标位置
-      const degR = 16; //摆动幅度
-      ry.value = (x / (width / (degR * 2)) - degR).toFixed(1) + "deg";
-      rx.value = (degR - y / (height / (degR * 2))).toFixed(1) + "deg";
-      mx.value = x;
-      my.value = y;
-    }
-
-    return {
-      size,
-      containerRef,
-      ry,
-      rx,
-      mx,
-      my,
-      getMouseLocal
-    }
-  }
+  ]
 })
 
 </script>
@@ -74,7 +34,6 @@ export default defineComponent({
 .content {
   height: 25vh;
   width: 15vw;
-  margin-top: 3vh;
   margin-right: 2vw;
   padding: 5px 20px;
   background-color: #fff;
@@ -84,8 +43,8 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   /* 最外层设置为3D */
-  transform-style: preserve-3d;
-  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  //transform-style: preserve-3d;
+  //transform: rotateX(var(--rx)) rotateY(var(--ry));
   transition: all 0.1s;
   //flex-wrap: wrap;
   cursor: pointer;

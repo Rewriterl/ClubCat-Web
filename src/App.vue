@@ -1,26 +1,31 @@
 <template>
-<!--  <Menu/>-->
+  <!--  <Menu/>-->
   <Header/>
-  <template v-for="club in state.clubs">
-    <Card :name="club.clubName"
-          :introduction="club.clubIntroduction"
-    />
-  </template>
+  <main class="">
+    <template v-for="club in state.clubs">
+      <Card :name="club.clubName"
+            :introduction="club.clubIntroduction"
+      />
+    </template>
+  </main>
+  <Footer/>
 </template>
 
 <script>
 import {defineComponent, reactive} from 'vue'
 import axios from './util/axios.js';
 import Header from './components/Header/index.vue'
-import Menu from './components/Menu/index.vue'
+// import Menu from './components/Menu/index.vue'
 import Card from './components/Card/index.vue'
+import Footer from './components/Footer/index.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
     Header,
-    Menu,
-    Card
+    // Menu,
+    Card,
+    Footer
   },
   setup() {
     const state = reactive({
@@ -31,7 +36,7 @@ export default defineComponent({
       pageLimit: 0,
       pageNum: 0
     })
-    axios.get('http://club.yeefire.cn/api/nobody/v1/club').then((res) => {
+    axios.get('/api/nobody/v1/club').then((res) => {
       state.clubs = res.data
       state.dataCount = res.dataCount
       state.message = res.message
@@ -56,6 +61,12 @@ body {
   // 铺满全屏
   height: 100vh;
   background: #e0eaf7;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: calc(100vh - 4vh - 100px);
 }
 
 #menu {
