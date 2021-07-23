@@ -36,85 +36,69 @@ body,
   justify-content: center;
   align-items: center;
 }
-
 .navbar {
   position: relative;
   padding: 1.2rem;
   border-radius: 50px;
   background-color: #fff;
   box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px rgba(255, 255, 255, 0.4);
-}
-
-.navbar input {
-  width: 40px;
-  height: 40px;
-  /* 鼠标移入时变手 */
-  cursor: pointer;
-  /* 设置复选框透明 */
-  opacity: 0;
-}
-
-// TODO:项目完成后尝试使用伪元素代替空的span，当前使用伪元素会导致菜单条的背景颜色不显示
-.navbar span {
-  position: absolute;
-  left: 25px;
-  /* 使用计算属性先确定50%的位置再减少10px */
-  top: calc(50% - 10px);
-  width: 30px;
-  height: 4px;
-  border-radius: 15px;
-  background-color: #999;
-  /* 当鼠标会误点span导致无法正确勾选多选框 */
-  pointer-events: none;
-  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out 0.3s;
-}
-
-.navbar span:nth-child(3) {
-  top: calc(50% + 6px);
-}
-
-.navbar ul {
-  width: 0;
-  overflow: hidden;
-  /* 当宽度不够时文字会换行显示，而文字换行之后又会撑大盒子，所以需要让文字不换行 */
-  white-space: nowrap;
-  transition: all 0.5s;
-}
-
-.navbar ul li {
-  list-style: none;
-  /* 正常顺序是上下左右，两个参数时是上下、左右，三个参数时是上、左右、下 */
-  margin: 0 15px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 700;
-  color: #333;
-}
-
-.navbar ul li a:hover {
-  color: rgba(255, 153, 153, 0.92);
-}
-
-.navbar input:checked ~ ul {
-  /* 一般都是只定义宽度，高会被自动顶出来 */
-  width: 18rem;
-}
-
-.navbar input:checked ~ span:nth-child(2) {
-  top: calc(50% - 2px);
-  transform: rotate(-45deg);
-  background-color: rgba(153, 202, 255, 0.88);
-  /* 先修改top然后旋转角度，并添加一定的延迟与淡入淡出效果 */
-  transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
-}
-
-.navbar input:checked ~ span:nth-child(3) {
-  top: calc(50% - 2px);
-  transform: rotate(45deg);
-  background-color: rgba(153, 202, 255, 0.88);
-  transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
+  input {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0;
+    &:checked {
+      & ~ ul {
+        width: 18rem;
+      }
+      & ~ span {
+        &:nth-child(2) {
+          top: calc(50% - 2px);
+          transform: rotate(-45deg);
+          background-color: rgba(153, 202, 255, 0.88);
+          transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
+        }
+        &:nth-child(3) {
+          top: calc(50% - 2px);
+          transform: rotate(45deg);
+          background-color: rgba(153, 202, 255, 0.88);
+          transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
+        }
+      }
+    }
+  }
+  span {
+    position: absolute;
+    left: 25px;
+    top: calc(50% - 10px);
+    width: 30px;
+    height: 4px;
+    border-radius: 15px;
+    background-color: #999;
+    pointer-events: none;
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out 0.3s;
+    &:nth-child(3) {
+      top: calc(50% + 6px);
+    }
+  }
+  ul {
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.5s;
+    li {
+      list-style: none;
+      margin: 0 15px;
+      a {
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 700;
+        color: #333;
+        &:hover {
+          color: rgba(255, 153, 153, 0.92);
+        }
+      }
+    }
+  }
 }
 </style>

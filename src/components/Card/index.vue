@@ -1,8 +1,10 @@
 <template>
-  <div class="card-container" ref="containerRef">
-    <div class="content">
-      <p class="title text-ellipsis">{{ name }}</p>
-      <div class="card text-ellipsis">{{ introduction }}</div>
+  <div class="masonry" v-for="club in state.clubs">
+    <div class="card-container" ref="containerRef">
+      <div class="content">
+        <p class="title text-ellipsis">{{ club.clubName }}</p>
+        <div class="card text-ellipsis">{{ club.clubIntroduction }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -10,31 +12,50 @@
 <!-- TODO:项目基本完成后尝试使用vue3实验特性setup-->
 <!--suppress JSUnusedGlobalSymbols -->
 <script>
-import {defineComponent} from "vue";
+import {defineComponent, reactive} from "vue";
+import axios from '../../util/axios.js';
 
 export default defineComponent({
   name: 'Card',
-  props: [
-    'name',
-    'introduction'
-  ]
+  setup() {
+    const state = reactive({
+      clubs: undefined,
+      dataCount: 0,
+      message: null,
+      pageAllNum: 0,
+      pageLimit: 0,
+      pageNum: 0
+    })
+    axios.get('/api/nobody/v1/club').then((res) => {
+      state.clubs = res.data
+      state.dataCount = res.dataCount
+      state.message = res.message
+      state.pageAllNum = res.pageAllNum
+      state.pageLimit = res.pageLimit
+      state.pageNum = res.pageNum
+    })
+    return {state}
+  }
 })
 
 </script>
 
 <!--suppress CssUnresolvedCustomProperty -->
 <style lang="scss" scoped>
+.masonry {
+  display: flex;
+  flex-direction: row;
+}
 .card-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  //margin: 12vh -5vh 5vw 7vw;
+  margin: 0 2vh;
 }
-
 .content {
   height: 25vh;
   width: 15vw;
-  margin-right: 2vw;
   padding: 5px 20px;
   background-color: #fff;
   border-radius: 20px;
@@ -42,20 +63,14 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* 最外层设置为3D */
-  //transform-style: preserve-3d;
-  //transform: rotateX(var(--rx)) rotateY(var(--ry));
   transition: all 0.1s;
-  //flex-wrap: wrap;
   cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+    inset 18px 18px 30px rgba(0, 0, 0, 0.1),
+    inset -18px -18px 30px rgba(255, 255, 255, 1);
+  }
 }
-
-.content:hover {
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
-  inset 18px 18px 30px rgba(0, 0, 0, 0.1),
-  inset -18px -18px 30px rgba(255, 255, 255, 1);
-}
-
 .title {
   margin: 0.7vh;
   font-size: 20px;
@@ -77,16 +92,5 @@ export default defineComponent({
   background: #7f7fd5;
   background: -webkit-linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
   background: linear-gradient(-20deg, #91eae4, #86a8e7, #7f7fd5);
-  /* card 的z轴偏移量 */
-  transform: translateZ(40px);
-}
-.lock {
-  width: 30px;
-  height: 30px;
-  border: 1px #999 solid;
-  border-radius: 50%;
-}
-.panel div {
-  padding: 0 20px;
 }
 </style>
