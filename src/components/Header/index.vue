@@ -3,8 +3,9 @@
     <!--    这里根据label选中复选框-->
     <input type="checkbox" name="" id="nav">
     <label for="nav"></label>
+    <div class="logo">ClubCat</div>
     <ul>
-      <li><a href="javascript:void 0;">首页</a></li>
+<!--      <li><a href="javascript:void 0;">首页</a></li>-->
       <li><a href="javascript:void 0;">我的社团</a></li>
       <li><a href="javascript:void 0;">个人信息</a></li>
     </ul>
@@ -20,6 +21,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.logo{
+  position: relative;
+  margin-right: 50%;
+  display: none;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 790;
+}
 .navbar {
   display: flex;
   flex-basis: 100%;
@@ -134,7 +143,12 @@ export default defineComponent({
 
 // PC端样式，页面大于992时渲染
 @media (min-width: 992px) {
+  .logo{
+    display: flex;
+  }
   .navbar {
+    display: flex;
+    justify-content: flex-end;
     label {
       display: none;
     }
@@ -143,18 +157,17 @@ export default defineComponent({
       // 恢复默认位置，使上面的top不生效
       position: static;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
       // 规定显示范围，也可以在上层用padding
-      width: 60vw;
+      width: 30rem;
       height: 100%;
-      margin: 0 auto;
+      margin: 0 10px;
       opacity: 1;
       transform: scaleY(1);
 
       li {
         text-align: center;
-
         a {
           // 还原行内元素，使之前的宽高失效
           display: inline;
