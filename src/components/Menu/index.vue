@@ -54,6 +54,7 @@ body,
   opacity: 0;
 }
 
+// TODO:项目完成后尝试使用伪元素代替空的span，当前使用伪元素会导致菜单条的背景颜色不显示
 .navbar span {
   position: absolute;
   left: 25px;
@@ -105,7 +106,7 @@ body,
 .navbar input:checked ~ span:nth-child(2) {
   top: calc(50% - 2px);
   transform: rotate(-45deg);
-  background-color: rgba(255, 153, 153, 0.88);
+  background-color: rgba(153, 202, 255, 0.88);
   /* 先修改top然后旋转角度，并添加一定的延迟与淡入淡出效果 */
   transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
 }
@@ -113,7 +114,7 @@ body,
 .navbar input:checked ~ span:nth-child(3) {
   top: calc(50% - 2px);
   transform: rotate(45deg);
-  background-color: rgba(255, 153, 153, 0.88);
+  background-color: rgba(153, 202, 255, 0.88);
   transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
 }
 </style>

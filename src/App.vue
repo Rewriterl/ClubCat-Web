@@ -1,5 +1,6 @@
 <template>
-  <Menu/>
+<!--  <Menu/>-->
+  <Header/>
   <template v-for="club in state.clubs">
     <Card :name="club.clubName"
           :introduction="club.clubIntroduction"
@@ -9,13 +10,15 @@
 
 <script>
 import {defineComponent, reactive} from 'vue'
-import axios from "./util/axios.js";
+import axios from './util/axios.js';
+import Header from './components/Header/index.vue'
 import Menu from './components/Menu/index.vue'
 import Card from './components/Card/index.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
+    Header,
     Menu,
     Card
   },
@@ -64,7 +67,7 @@ body {
 }
 
 #app {
-  padding: 15vh 8vh;
+  //padding: 15vh 8vh;
   display: flex;
   flex-wrap: wrap;
   align-content: start;
