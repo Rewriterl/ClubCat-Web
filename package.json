@@ -49,7 +49,11 @@
     "wangeditor": "^4.0.3",
     "xe-ajax": "^4.0.5",
     "xe-utils": "^3.2.1",
-    "xgplayer": "^2.22.1"
+    "xgplayer": "^2.22.1",
+    "@primer/css": "^14.3.0",
+    "gsap": "3.6.0",
+    "primer-core": "^6.7.0",
+    "timeago": "1.6.7"
   },
   "devDependencies": {
     "@types/mockjs": "^1.0.3",
