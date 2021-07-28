@@ -35,40 +35,21 @@ export default defineComponent({
 }
 
 body {
-  display: flex;
+  //display: flex;
   // 铺满全屏
   height: 100vh;
   background: #e0eaf7;
 }
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-  min-height: calc(100vh - 4vh - 100px);
-  justify-content: space-around;
-}
-
-#menu {
-  position: absolute;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  margin: 4vh 2vh 5vh 5vh;
-}
-
 #app {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: start;
-  justify-content: center;
+  //display: flex;
+  //flex-wrap: wrap;
+  //align-content: start;
+  //justify-content: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
 
-.text-ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 </style>

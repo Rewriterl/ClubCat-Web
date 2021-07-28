@@ -11,11 +11,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction:column;
-  height: 4vh;
-}
+/*footer {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  flex-direction:column;*/
+/*  height: 4vh;*/
+/*}*/
 </style>

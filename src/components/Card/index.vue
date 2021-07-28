@@ -41,56 +41,6 @@ export default defineComponent({
 </script>
 
 <!--suppress CssUnresolvedCustomProperty -->
-<style lang="scss" scoped>
-.masonry {
-  display: flex;
-  flex-direction: row;
-}
-.card-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2vh;
-}
-.content {
-  height: 25vh;
-  width: 15vw;
-  padding: 5px 20px;
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px rgba(255, 255, 255, 0.6);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all 0.1s;
-  cursor: pointer;
-  &:hover {
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
-    inset 18px 18px 30px rgba(0, 0, 0, 0.1),
-    inset -18px -18px 30px rgba(255, 255, 255, 1);
-  }
-}
-.title {
-  margin: 0.7vh;
-  font-size: 20px;
-  text-align: center;
-  color: #666;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-}
-.card {
-  width: 80%;
-  height: 12vh;
-  border-radius: 20px;
-  margin: 20px 0 20px 0;
-  padding: 20px;
-  color: #fff;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #7f7fd5;
-  background: -webkit-linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
-  background: linear-gradient(-20deg, #91eae4, #86a8e7, #7f7fd5);
-}
+<style scoped>
+
 </style>
