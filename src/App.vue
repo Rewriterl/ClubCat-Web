@@ -13,6 +13,7 @@ import Header from './components/Header/index.vue'
 // import Menu from './components/Menu/index.vue'
 import Card from './components/Card/index.vue'
 import Footer from './components/Footer/index.vue'
+import './assets/css/index.css'
 
 export default defineComponent({
   name: 'App',
