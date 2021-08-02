@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://club.yeefire.cn'
+axios.defaults.baseURL = 'https://club.yeefire.cn'
 axios.defaults.headers['X-Requestd-With'] = 'XMLHttpRequest'
 // axios.defaults.headers['token'] =
 axios.defaults.headers.post['Content-Type'] = 'application/json'
