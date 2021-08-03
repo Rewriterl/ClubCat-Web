@@ -2,14 +2,6 @@
   <article>
     Router of Party
   </article>
-  <!--  <div class="masonry" v-for="club in state.clubs">-->
-  <!--    <div class="card-container" ref="containerRef">-->
-  <!--      <div class="content">-->
-  <!--        <p class="title text-ellipsis">{{ club.clubName }}</p>-->
-  <!--        <div class="card text-ellipsis">{{ club.clubIntroduction }}</div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </div>-->
 </template>
 
 <!-- TODO:项目基本完成后尝试使用vue3实验特性setup-->

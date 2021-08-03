@@ -8,8 +8,8 @@
         </a>
       </div>
       <ul class="site-header__nav">
-        <li class="is-active" aria-current="page">我的社团</li>
-        <li class="is-active" aria-current="page">个人中心</li>
+        <li aria-current="page"><a href="#">我的社团</a></li>
+        <li aria-current="page"><a href="#">个人中心</a></li>
         <li>
           <a class="external"
              target="_new"
@@ -35,7 +35,7 @@
           </form>
           <div class="search-trigger"></div>
         </div>
-        <div class="nav-trigger js-menu-trigger">
+        <div class="nav-trigger js-menu-trigger" @click="pullTrigger">
           <img class="open-menu" src="../../assets/images/svgs/menu.svg" alt="打开菜单">
           <img class="close-menu" src="../../assets/images/svgs/close.svg" alt="关闭菜单">
         </div>
@@ -60,7 +60,7 @@
             </form>
           </li>
           <li>
-            <a class="is-active" href="#">首页</a>
+            <a class="" href="#">首页</a>
           </li>
           <li>
             <a class="" href="#">我的社团</a>
@@ -81,9 +81,6 @@
             </a>
           </li>
           <li>
-            <p>&nbsp;</p>
-          </li>
-          <li>
             <a class="sign-in" href="#">
               <span>Sign In</span>
               <span class="account-img"></span>
@@ -100,7 +97,7 @@
       <label>
         <span class="sr-only">Search projects</span>
       </label>
-      <input id="mobile-search" type="text" name="q" placeholder="Search" />
+      <input id="mobile-search" type="text" name="q" placeholder="Search"/>
     </form>
   </div>
 </template>
@@ -109,7 +106,19 @@
 import {defineComponent} from 'vue'
 
 export default defineComponent({
-  name: 'Header'
+  name: 'Header',
+  setup() {
+    const getBodyClass = () => {
+      return document.getElementsByTagName("body")[0]
+    }
+    const pullTrigger = (t) => {
+      t.preventDefault()
+      getBodyClass().classList.contains('menu-is-open') ? getBodyClass().classList.remove('menu-is-open') : getBodyClass().className += ' menu-is-open'
+    }
+    return {
+      pullTrigger
+    }
+  }
 })
 </script>
 

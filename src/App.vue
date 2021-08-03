@@ -1,6 +1,6 @@
 <template>
   <Header/>
-    <Main/>
+  <Main/>
   <Footer/>
 </template>
 
