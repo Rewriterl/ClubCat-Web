@@ -1,31 +1,24 @@
-// import {createRouter} from "vue-router";
-// import {createWebHashHistory} from "vue-router";
-// import Main from '../components/Main/index.vue'
-// import Party from '../components/Main/index.vue'
-// import User from '../components/Main/index.vue'
-//
-//
-// const routes = [
-//     {
-//         path: '/',
-//         Component: Main,
-//         name:Main,
-//         children: [
-//             {
-//                 path: 'partyList',
-//                 component: Party
-//             },
-//             {
-//                 path: 'userinfo',
-//                 component: User
-//             }
-//         ]
-//     }
-// ]
-//
-// const router = createRouter({
-//     history:createWebHashHistory(),
-//     routes
-// })
-//
-// export default router
+import { createRouter, createWebHistory } from 'vue-router'
+
+import Party from '../components/Party/index.vue'
+import User from '../components/User/index.vue'
+
+const routes = [
+  {
+    path: '/',
+    name: 'party',
+    component: Party
+  },
+  {
+    path: '/userinfo',
+    name: 'user',
+    component: User
+  }
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
+
+export default router

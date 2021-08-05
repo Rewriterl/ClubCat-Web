@@ -2,7 +2,7 @@
   <header id="site-header" role="banner">
     <div class="site-header__inner">
       <div class="site-logo">
-        <a href="#" tabindex="2">
+        <a href="/" tabindex="2">
           <img src="../../assets/images/Microsoft-Open-Source-logo.svg" alt="ClubCat">
           <span class="sr-only">回到首页</span>
         </a>
@@ -103,13 +103,13 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'Header',
-  setup() {
+  setup () {
     const getBodyClass = () => {
-      return document.getElementsByTagName("body")[0]
+      return document.getElementsByTagName('body')[0]
     }
     const pullTrigger = (t) => {
       t.preventDefault()

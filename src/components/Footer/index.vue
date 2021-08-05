@@ -25,12 +25,12 @@
 </template>
 
 <script>
-import {defineComponent, reactive} from "vue";
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  name: "Footer",
-  setup() {
-    let date = reactive(new Date().getFullYear())
+  name: 'Footer',
+  setup () {
+    const date = ref(new Date().getFullYear())
     return {
       date
     }

@@ -1,12 +1,11 @@
 <template>
-  <div>Router of user</div>
+  This is Login
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-
 export default defineComponent({
-  name: 'User'
+  name: 'login'
 })
 </script>
 
