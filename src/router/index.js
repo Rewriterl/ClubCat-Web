@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Party from '../components/Party/index.vue'
-import User from '../components/User/index.vue'
+import Party from '../layout/Party/index.vue'
+import User from '../layout/User/index.vue'
 
 const routes = [
   {

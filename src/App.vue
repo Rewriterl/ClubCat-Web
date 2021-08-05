@@ -10,8 +10,8 @@
 
 <script>
 import { defineComponent } from 'vue'
-import Header from './components/Header/index.vue'
-import Footer from './components/Footer/index.vue'
+import Header from './layout/Header/index.vue'
+import Footer from './layout/Footer/index.vue'
 import './assets/css/index.css'
 
 export default defineComponent({
